@@ -39,19 +39,29 @@ busAppModule.controller("busAppCtrl", function($scope, busFactory){
             var key = data[j].busData;
             for (var i in key) {
                 var deviation = key[i].deviationFromTimetable;
-                if (deviation != null && deviation !== undefined) {
-                    if (deviation > 0) {
-                        key[i].deviationFromTimetable = "Early";
-                    } else {
-                        key[i].deviationFromTimetable = "Late";
-                    }
-                } else {
-                    key[i].deviationFromTimetable = "onTime";
+                switch (true){
+                    case(deviation > 0): key[i].deviationFromTimetable = "early";
+                        break;
+                    case(deviation < 0): key[i].deviationFromTimetable = "late";
+                        break;
+                    case(deviation == 0): key[i].deviationFromTimetable = "onTime";
+                        break;
+                    default: key[i].deviationFromTimetable = "unknown";
                 }
-
             }
         }
         return data;
     };//end function getTotalMarks
 });//end controller
 
+busAppModule.filter('capitalize', function() {
+    return function (s) {
+        return (angular.isString(s) && s.length > 0) ? s[0].toUpperCase() + s.substr(1).toLowerCase() : s;
+    }
+});
+
+busAppModule.filter('boldfilter', function() {
+    return function (input) {
+        return input.replace(RegExp('('+ '^[a-zA-Z0-9]{3}' + ')', 'g'), '<span class="super-class">$1</span>');
+    }
+});
