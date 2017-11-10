@@ -76,6 +76,16 @@ describe('busController', function () {
           
   }));
 
+    beforeEach(function(){
+        inject(function($injector){
+            capitalizeFilter = $injector.get('$filter')('capitalize');
+        });
+
+        inject(function($injector){
+            boldfilter = $injector.get('$filter')('boldfilter');
+        });
+    });
+
     it('should check if method is defined', inject(function(busFactory) {
         expect(busFactory.getBusServiceData).toBeDefined();
     }));
@@ -87,7 +97,13 @@ describe('busController', function () {
 
     }));
 
-  
+    it('should capitalize the first character of the input passed', function(){
+        expect(capitalizeFilter("hello")).toBe("Hello");
+    });
+
+    it('should capitalize the first character of the input passed', function(){
+        expect(boldfilter("hello")).toBe('<span class="super-class">hel</span>lo');
+    });
  });
  
 

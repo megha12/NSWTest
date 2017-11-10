@@ -26,7 +26,7 @@
     <div ng-controller="busAppCtrl">
         <div class="" ng-repeat="x in busServiceData">
             <button class="btn" ng-click="manageCollapseExpand(x, false)">
-                {{x.organisation}}
+                {{x.organisation}} - {{CurrentDate | date:'dd/MM/yyyy'}}
             </button>
 
             <div class="" ng-show="x.expanded">

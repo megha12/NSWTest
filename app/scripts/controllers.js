@@ -6,8 +6,8 @@ busAppModule.controller("busAppCtrl", function($scope, busFactory){
     busFactory.getBusServiceData().then(function(data){
         $scope.busServiceData=$scope.convertDeviation(data.data);//deviation conversion
     });
-
-        $scope.expandedOrg = null;
+    $scope.CurrentDate = new Date();
+    $scope.expandedOrg = null;
         $scope.expandedBusData = null;
 
         $scope.manageCollapseExpand = function(obj, busData) {
