@@ -26,8 +26,9 @@
     <div ng-controller="busAppCtrl">
         <div class="" ng-repeat="x in busServiceData">
             <button class="btn" ng-click="manageCollapseExpand(x, false)">
-                <span ng-class="{'glyphicon glyphicon-collapse-up': x.expanded, 'glyphicon glyphicon-collapse-down': !x.expanded }"></span>
                 {{x.organisation}} - {{CurrentDate | date:'dd/MM/yyyy'}}
+                <span ng-class="{'glyphicon glyphicon-collapse-up': x.expanded, 'glyphicon glyphicon-collapse-down': !x.expanded }"></span>
+
             </button>
 
             <div class="" ng-show="x.expanded">
@@ -51,7 +52,7 @@
 
                         <textarea class="form-control" rows="5" id="comment"></textarea>
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Save Notes">
+                    <input type="submit" class="btn-primary" value="Save Notes">
 
                 </form>
             </div>
