@@ -1,0 +1,37 @@
+.light-blue{
+    background: #d9edf7 ;
+}
+
+.early{
+    color: green;
+}
+.late{
+    color: red;
+}
+.onTime{
+    color: blue;
+}
+.super-class {
+    font-weight: bold;
+
+}
+
+.btn{
+    background: none;
+    text-align:left !important;
+    width: 100%;
+    padding-left:0px;
+    font-size: 1.3em !important;
+    line-height:0px !important;
+}
+
+
+.table{
+    margin-top: 20px;
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 600px;
+    }
+
+}

@@ -17,7 +17,7 @@
     <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
     <link data-require="font-awesome@*" data-semver="4.5.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link scr="styles/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body ng-app="app">
@@ -26,6 +26,7 @@
     <div ng-controller="busAppCtrl">
         <div class="" ng-repeat="x in busServiceData">
             <button class="btn" ng-click="manageCollapseExpand(x, false)">
+                <span ng-class="{'glyphicon glyphicon-collapse-up': x.expanded, 'glyphicon glyphicon-collapse-down': !x.expanded }"></span>
                 {{x.organisation}} - {{CurrentDate | date:'dd/MM/yyyy'}}
             </button>
 
